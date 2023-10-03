@@ -1,4 +1,4 @@
-import { randomUUID } from "crypto";
+import { Entity } from "../../core/entities/entity";
 
 interface AnswerProps {
   questionId: string;
@@ -6,8 +6,7 @@ interface AnswerProps {
   content: string;
 }
 
-export class Answer {
-  public id: string;
+export class Answer extends Entity {
   public questionId: string;
   public authorId: string;
   public content: string;
@@ -17,7 +16,8 @@ export class Answer {
     questionId,
     content
   }: AnswerProps, id?: string) {
-    this.id = id ?? randomUUID();
+    super(id)
+
     this.questionId = questionId;
     this.authorId = authorId;
     this.content = content;
