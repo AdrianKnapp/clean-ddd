@@ -6,20 +6,8 @@ interface AnswerProps {
   content: string;
 }
 
-export class Answer extends Entity {
-  public questionId: string;
-  public authorId: string;
-  public content: string;
-
-  constructor({
-    authorId,
-    questionId,
-    content
-  }: AnswerProps, id?: string) {
-    super(id)
-
-    this.questionId = questionId;
-    this.authorId = authorId;
-    this.content = content;
+export class Answer extends Entity<AnswerProps> {
+  get content() {
+    return this.props.content;
   }
 }

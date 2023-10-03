@@ -8,23 +8,6 @@ interface QuestionProps {
   content: string;
 }
 
-export class Question extends Entity {
-  public authorId: string;
-  public title: string;
-  public slug: Slug;
-  public content: string;
+export class Question extends Entity<QuestionProps> {
 
-  constructor({
-    authorId,
-    title,
-    slug,
-    content
-  }: QuestionProps, id?: string) {
-    super(id);
-
-    this.authorId = authorId;
-    this.title = title;
-    this.slug = slug;
-    this.content = content;
-  }
 }
