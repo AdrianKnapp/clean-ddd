@@ -4,8 +4,8 @@ import { Answer } from '@/domain/entities/answer'
 
 const fakeAnswersRepository: AnswersRepository = {
   create: async (answer: Answer) => {
-    return;
-  }
+    console.log(answer)
+  },
 }
 
 test('create an answer', async () => {
@@ -14,7 +14,7 @@ test('create an answer', async () => {
   const answer = await answerQuestion.execute({
     instructorId: '1',
     questionId: '1',
-    content: 'New answer.'
+    content: 'New answer.',
   })
 
   expect(answer.content).toEqual('New answer.')
